@@ -8,7 +8,7 @@ public abstract class BankAccount {
     public BankAccount(String accountHolder, String accountNumber, double balance) {
         this.accountHolder = accountHolder;
         this.accountNumber = accountNumber;
-        this.balance = 0.0;
+        this.balance = balance;
     }
 
     public double getBalance() {
@@ -27,7 +27,7 @@ public abstract class BankAccount {
 
     public double withdraw(double amount) {
         if (amount > balance || amount < 0) {
-            throw new IllegalArgumentException("Withdraw Failed");
+            throw new IllegalArgumentException("Insufficient funds");
         } else {
             System.out.println("Withdrawed " + amount);
             balance -= amount;
